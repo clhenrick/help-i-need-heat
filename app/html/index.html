@@ -63,16 +63,19 @@
         var currentHour = dateObject.getHours();
         var currentMinutes = dateObject.getMinutes();
         var theTime = currentHour + ":" + currentMinutes;
-        $('#dateTime').append(theDate + " and the time is now " + theTime);
+        $('#dateTime').append(theDate + " and the time is now " + theTime + ".");
 
         $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=newyork&units=imperial&APPID=9b7b2c28d9900e12be5ff93fe2677b09", function(data){
           var currentTemp = data.main.temp;
-          $('#temp').append("It is " + currentTemp + " degrees outside right now.");
+          $('#temp').append("It is " + currentTemp + " degrees outside right now." + insideMinTemp());
+
+        function insideMinTemp(){
+          if (currentHour > 6 && currentHour < 22 && currentTemp < 55) {
+            var minTemp = 68;
+            return " According to the law, it must be at least " + minTemp + " degrees everywhere in your apartment.";
+          }
+        }
         });
-
-        
-
-
     });
   </script>
 
