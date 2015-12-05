@@ -58,6 +58,12 @@
   <script>
     $(document).ready(function() {
         console.log("hits our console");
+        var dateObject = new Date();
+        var theDate = "Today is " + (dateObject.getMonth()+1) + "/" + dateObject.getDate() + "/" + dateObject.getFullYear();
+        var currentHour = dateObject.getHours();
+        var currentMinutes = dateObject.getMinutes();
+        var theTime = currentHour + ":" + currentMinutes;
+        $('#landing_page').append(theDate + " and the time is now " + theTime );
     });
   </script>
 
