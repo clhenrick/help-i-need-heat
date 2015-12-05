@@ -8,6 +8,7 @@
       <meta name="description" content="">
       <meta name="author" content="">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -52,9 +53,9 @@
   <div class='container-fluid'>
     
     <section id="landing_page">
-      <h1>It's&nbsp;<span class="time"></span>&nbsp; it's&nbsp;<span class="outside-temp"></span>&nbsp;outside right now.</h1>
+      <h1>It's&nbsp;<span class="time data-bg"></span>&nbsp; it's&nbsp;<span class="outside-temp data-bg"></span>&nbsp;outside right now.</h1>
 
-      <h2>According to NYC law, it must be at least&nbsp;<span class="inside-temp"></span>&nbsp;inside your apartment.</h2>
+      <h2>According to NYC law, it must be at least&nbsp;<span class="inside-temp data-bg"></span>&nbsp;inside your apartment.</h2>
       <!-- - current temperature/status update, centered on page -->
       <!-- - call to action -->
       <h3>Over 10,000 people in NYC are without heat. Are you one of them?</h3>
@@ -66,14 +67,80 @@
     <section id="next_steps">
       <h2>If Your landlord has not responded to your requests to turn on the heat, here are the steps you can take:</h2>
       
-      <div class="steps">
+<!--       <div class="steps">
         <ol>
           <li>Contact 311</li>
           <li>Document your heat complaints</li>
           <li>Reach Out</li>
           <li>Go To Housing Court</li>
         </ol>
+      </div> -->
+
+      <div class="panel-group steps-to-take" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <span class="glyphicon glyphicon-earphone"></span> Contact 311
+                <span class="steps-caret glyphicon glyphicon-chevron-up pull-right"></span>
+              </a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+              Call 311 or  online. The city should send an investigator to come take a temperature reading in your apartment.
+              <br/><br/>
+              <b>Why?</b><br/>
+              Contacting 311 will help:
+              <br/>
+              <ol>
+                <li>"Encourage" your landlord to turn on your heat.  311 takes your complaint and sends it to the NY Housing Department  (HPD). The Housing Department then contacts your landlord and lets them know a case has been filed.</li>
+                <li>Build Your Case.  Your complaints are all catalogued, and can be referred to if you choose to take your landlord to court.  </li>
+              </ol>
+               
+              <b>What Next?</b><br/>
+              Contacting 311 every day that you don't have heat. An inspector should eventually come, although sometimes they don’t, and sometimes they come unannounced. 
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <span class="glyphicon glyphicon-pencil"></span> Document your heat complaints
+                <span class="steps-caret glyphicon glyphicon-chevron-down pull-right"></span>
+              </a>
+            </h4>
+          </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+              Keeping track of every day you don't have heat can help you if you end up in court. Use our [Heat Log Tool], or <a href="http://metcouncilonhousing.org/sites/default/files/Met_Council_on_Housing_Heat_and_Hot_Water_Sheet.pdf">download a PDF</a> from The MetCouncil on Housing to print.
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <span class="glyphicon glyphicon-heart"></span> Reach Out for Help
+                <span class="steps-caret glyphicon glyphicon-chevron-down pull-right"></span>
+              </a>
+            </h4>
+          </div>
+          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+              At any time during this process you can contact an organization that can assist you through this process. To get some recommedations, you can call the MetCouncil's tenant help hotline at 212-979-0611. 
+              <br/>
+              <br/>
+              <a href="http://council.nyc.gov/html/members/members.shtml">Try contacting your city council member!</a>
+              <br/>
+              <br/>
+              Talk to your neighbors. If your neighbors are also struggling with heat, you should work together to file a case against your landlord. Everyone should be contacting 311, at least every day. 
+            </div>
+          </div>
+        </div>
       </div>
+
 
       <button class="btn btn-default btn-lg next">Get Started</button>
     </section>
@@ -149,6 +216,23 @@
             return minTemp;
           }
         });
+
+
+        $('.panel-title').click(function () {
+
+          var $caret = $(this).find('.steps-caret');
+          var $carets = $('.steps-caret');
+          // console.log($caret);
+
+          if($caret.hasClass('glyphicon-chevron-down')) {
+            $caret.removeClass('glyphicon-chevron-down');
+            $caret.addClass('glyphicon-chevron-up');
+          } else {
+            $caret.addClass('glyphicon-chevron-down');
+            $caret.removeClass('glyphicon-chevron-up');
+          }
+        });
+
     });
   </script>
     
@@ -158,9 +242,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../bootstrap-3.3.6/dist/js/bootstrap.min.js"></script> 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
+    
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug
     <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
   </body>
 </html>

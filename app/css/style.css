@@ -32,7 +32,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 
-span {
+span.data-bg {
   background-color: #fb500b;
   padding: 2px 4px;
 }
@@ -43,7 +43,7 @@ button.next {
   left: 50%;
   transform: translateX(-50%);
   margin: auto;
-  bottom: 30vh;
+  bottom: 10vh;
   font-weight: bold;
 }
 
@@ -55,4 +55,9 @@ button.next {
 
 .steps li {
   font-size: 20px;
+}
+
+.steps-to-take {
+  margin: 0 auto;
+  max-width: 768px;
 }
