@@ -14,7 +14,9 @@ var heatlogurlsuffix = '&api_key=146d6f56877a3f50678a19387e10fbfda8b0de30';
 
   // populate the form based on new rows of data
 
-
+  function destroyTableRows(){
+     $("tbody").find("tr:not(:last)").remove();
+  }
 
   function heatLogSubmitAjaxCall(data, callback){ 
     $.ajax({
@@ -57,6 +59,5 @@ var heatlogurlsuffix = '&api_key=146d6f56877a3f50678a19387e10fbfda8b0de30';
     
     } //end for loop 
   }
-
 
 });
