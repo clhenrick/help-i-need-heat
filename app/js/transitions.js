@@ -1,3 +1,13 @@
+//tracking state
+var sectionStates = {
+  "slide-1": true, 
+  "slide-2": false,
+  "slide-3": false,
+  "slide-4": false,
+  "slide-5": false
+}
+
+
 //References to DOM elements
 var $window = $(window);
 var $document = $(document);
@@ -28,12 +38,14 @@ $navButtons.on("click", onNavButtonClick);
 * */
 function onNavButtonClick(event)
 {
+  
   //The clicked button
   // var $button = $(this);
   var $button = $(event.currentTarget);
 
   //The slide the button points to
   var $slide = $($button.attr('href'));
+
   console.log($slide);
 
   //If the slide exists, we go to it
