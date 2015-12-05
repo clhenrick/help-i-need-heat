@@ -97,6 +97,7 @@
         var dateObject = new Date();
         var theDate = "Today is " + (dateObject.getMonth()+1) + "/" + dateObject.getDate() + "/" + dateObject.getFullYear();
         var currentMilitaryHour = dateObject.getHours();
+
         var currentAmericanHour = convertHoursFromMilitaryTime();
         var currentMinutes = dateObject.getMinutes();
         var formattedMinutes = convertMinutes();
@@ -125,6 +126,7 @@
 
         $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=newyork&units=imperial&APPID=9b7b2c28d9900e12be5ff93fe2677b09", function(data){
           var currentTemp = data.main.temp;
+          
           $('#temp').append("It is " + currentTemp + " degrees outside right now." + insideMinTemp());
 
         function insideMinTemp(){
