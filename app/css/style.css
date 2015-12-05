@@ -26,13 +26,18 @@ section {
 
 h1, h2, h3, h4, h5, h6, p {
   text-align: center;
-  margin: 20px auto;
+  margin: 0 auto;
+  margin-bottom: 40px;
   width: 60%;
+}
+
+p {
+  width: 40%;
 }
 
 
 span {
-  background-color: #fb500b;
+  background-color: #ff9a33;
   padding: 2px 4px;
 }
 
@@ -47,7 +52,10 @@ button.next {
   transform: translateX(-50%);
   margin: auto;
   bottom: 20vh;
-  font-weight: bold;
+  text-spacing: 0.5px;
+  color: #fff;
+  text-shadow: none;
+  background: #fb500b;
 }
 
 button.final {
