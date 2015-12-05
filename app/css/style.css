@@ -27,13 +27,10 @@ section {
 
 h1, h2, h3, h4, h5, h6, p {
   text-align: center;
+  margin: 20px auto;
+  width: 60%;
 }
 
-h3 {
-  width: 60%;
-  text-align: center;
-  margin: 20px auto;
-}
 
 span {
   background-color: #fb500b;
@@ -43,9 +40,9 @@ span {
 
 button.next {
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
   margin: auto;
-  bottom: 10vh;
+  bottom: 30vh;
   font-weight: bold;
 }
