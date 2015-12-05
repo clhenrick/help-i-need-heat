@@ -28,12 +28,15 @@ $navButtons.on("click", onNavButtonClick);
 * */
 function onNavButtonClick(event)
 {
-  console.log("I worked");
   //The clicked button
-  var $button = $(this);
+  // var $button = $(this);
+  var $button = $(event.currentTarget);
 
   //The slide the button points to
   var $slide = $($button.parent().attr('id'));
+  var $slide = $($slide.selector);
+  debugger;
+  console.log($slide);
 
   //If the slide exists, we go to it
   if($slide.length)
