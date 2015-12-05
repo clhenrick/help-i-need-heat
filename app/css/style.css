@@ -36,6 +36,10 @@ span {
   padding: 2px 4px;
 }
 
+.strong {
+  color: #3e5ba9;
+}
+
 
 button.next {
   position: absolute;
