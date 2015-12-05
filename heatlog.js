@@ -128,16 +128,21 @@ var heatlogurlsuffix = '&api_key=146d6f56877a3f50678a19387e10fbfda8b0de30';
   }
 
   function populateTable(jsonArray){
-    var datee, timee, splitt;
+    var datee, timee, splitt, water;
     for(var i = 0; i < jsonArray.length; i++){
       if(jsonArray[i].datetime != null){
         splitt = jsonArray[i].datetime.split("T");
         datee = splitt[0];
-        timee = splitt[1].substr(0, splitt[1].length-1);
+        debugger;
+        timee = splitt[1].substr(0, splitt[1].length-4);
       }else{
       };
-      
-        var htmlstring = "<tr id='"+ jsonArray[i].cartodb_id +"'><td>"+ datee +"</td><td>"+ timee +"</td><td>"+ jsonArray[i]._311_number +"</td><td>"+ jsonArray[i].outdoor_temp +"</td><td>"+ jsonArray[i].indoor_temp +"</td><td>"+ jsonArray[i].hot_water +"</td><td>"+ jsonArray[i].witness +"</td></tr>";
+      if(jsonArray[i].hot_water === true){
+        water = "<span class='glyphicon glyphicon-ok'></span>"
+      }else{
+        water = "<span class='glyphicon glyphicon-remove'></span>"
+      };
+        var htmlstring = "<tr id='"+ jsonArray[i].cartodb_id +"'><td>"+ datee +"</td><td>"+ timee +"</td><td>"+ jsonArray[i]._311_number +"</td><td>"+ jsonArray[i].outdoor_temp +"</td><td>"+ jsonArray[i].indoor_temp +"</td><td>"+ water +"</td><td>"+ jsonArray[i].witness +"</td></tr>";
         $("tbody").prepend(htmlstring);
     
     } //end for loop 
