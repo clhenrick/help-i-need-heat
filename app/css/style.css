@@ -46,8 +46,12 @@ button.next {
   left: 50%;
   transform: translateX(-50%);
   margin: auto;
-  bottom: 5vh;
+  bottom: 20vh;
   font-weight: bold;
+}
+
+button.final {
+  bottom: 5vh;
 }
 
 .steps {
