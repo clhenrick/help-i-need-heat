@@ -7,32 +7,50 @@
   <title>Help I Need Heat Log</title>
 </head>
 <body>
-  <form>
-    <table class='table-striped table-bordered'>
-      <thead>
-         <tr class="table-head">
-           <th>Date</th>
-           <th>Time</th>
-           <th>311 Complaint Number</th>
-           <th>Outdoor Temperature</th>
-           <th>Inside Temperature</th>
-           <th>Hot Water?</th>
-           <th>Witness</th>
+  <div class="main" style="padding:20px">
+    <p>
+      <h1> Heat Log</h1>
+      Keeping a detailed log of your heating complaints can help you prove your case if you need to bring your landlord to housing court. Your landlord is required to provide the following:
+    </p>
+    <p>
+      <h2>Heat (from October 1 through May 31)</h2>
+      From 6 am to 10 pm: If the outside temperature falls below 55 degrees, the inside temperature must be at least 68 degrees everywhere in your apartment. 
+    </p>
+    <p>
+      From 10 pm to 6 am: If the outside temperature falls below 40 degrees, the inside temperature must be at least 55 degrees everywhere in your apartment.
+    </p>
+    <p>
+      <h2>Hot Water</h2>
+      Hot water at a minimum of 120 degrees, 24 hours a day, all year round.
+    </p>
+
+    <form>
+      <table class='table table-striped table-bordered'>
+        <thead>
+           <tr class="table-head">
+             <th>Date</th>
+             <th>Time</th>
+             <th>311 Complaint Number</th>
+             <th>Outdoor Temperature</th>
+             <th>Inside Temperature</th>
+             <th>Hot Water?</th>
+             <th>Witness</th>
+           </tr>
+         </thead>
+         <tbody>
+         <tr class="row-data">  
+            <td class="date"><input type="date" value="" name="fdate"></td>
+            <td class="time"><input type="text" value="" name="ftime"></td>
+            <td class="311-complaint-number"><input type="text" value="" name="311complainnumber"></td>
+            <td class="outdoor-temperature"><input type="text" value="" name="outdoortemp"></td>
+            <td class="indoor-temperature"><input type="text" value="" name="indoortemp"></td>
+            <td class="hot-water"><input type="text" value="" name="hotwater"></td>
+            <td class="witness"><input type="text" value="" name="witness"></td>
          </tr>
-       </thead>
-       <tbody>
-       <tr class="row-data">  
-          <td class="date"><input type="date" value="" name="fdate"></td>
-          <td class="time"><input type="text" value="" name="ftime"></td>
-          <td class="311-complaint-number"><input type="text" value="" name="311complainnumber"></td>
-          <td class="outdoor-temperature"><input type="text" value="" name="outdoortemp"></td>
-          <td class="indoor-temperature"><input type="text" value="" name="indoortemp"></td>
-          <td class="hot-water"><input type="text" value="" name="hotwater"></td>
-          <td class="witness"><input type="text" value="" name="witness"></td>
-       </tr>
-       </tbody>   
-    </table>
-    <button class='submit-button'>Add New Record</button>
-  </form>
+         </tbody>   
+      </table>
+      <button class='submit-button btn btn-primary'>Add New Record</button>
+    </form>
+  </div>
 </body>
 </html>
