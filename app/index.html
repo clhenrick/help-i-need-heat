@@ -8,6 +8,15 @@
       <meta name="description" content="">
       <meta name="author" content="">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script src="js/landing-page.js"></script>
+      <script src="js/transitions.js"></script>
+
+
+      <!--CDN links for the latest TweenLite, CSSPlugin, and EasePack-->
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/easing/EasePack.min.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
+
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -51,7 +60,7 @@
 
   <div class='container-fluid'>
     
-    <section id="landing_page">
+    <section class="slide" id="slide-1">
       <h1>It's&nbsp;<span class="time"></span>&nbsp; it's&nbsp;<span class="outside-temp"></span>&nbsp;outside right now.</h1>
 
       <h2>According to NYC law, it must be at least&nbsp;<span class="inside-temp"></span>&nbsp;inside your apartment.</h2>
@@ -63,7 +72,7 @@
       <button class="btn btn-default btn-lg next">Help, I Need Heat!</button>
     </section>
 
-    <section id="next_steps">
+    <section class="slide" id="slide-2">
       <h2>If Your landlord has not responded to your requests to turn on the heat, here are the steps you can take:</h2>
       
       <div class="steps">
@@ -75,10 +84,14 @@
         </ol>
       </div>
 
-      <button class="btn btn-default btn-lg next">Get Started</button>
+
+<!-- <li id="help-button" ><a href="#slide-1" onclick="onNavButtonClick(event)">Help I Need Heat</a></li>
+ -->
+      <button class="btn btn-default btn-lg next" id="#slide-2">Get Started</button>
+
     </section>
 
-    <section id="step_one">
+    <section class="slide" id="slide-2">
       <h2>Call 311</h2>
       <h3>Why?</h3>
       <p>It will "encourage" your landlord to turn on your heat. 311 takes your complaint and sends it to the NY Housing Department  (HPD). The Housing Department then contacts your landlord and lets them know a case has been filed.</p>
@@ -86,26 +99,26 @@
       <button class="btn btn-default btn-lg next">Next</button>
     </section>
 
-    <section id="step_two">
+    <section class="slide" id="slide-3">
       <h2>Keep a Heat Log</h2>
       <p>Keeping track of every day you don't have heat can help you if you end up in court. Use our <a href="#">Heat Log Tool</a> or download the <a href="#">heat log PDF</a> from The Metropolitan Council to print.</p>
       <button class="btn btn-default btn-lg next">Next</button>
     </section>
 
-    <section id="step_three">
+    <section class="slide" id="slide-4">
       <h2>Reach Out</h2>
       <p>Reach out to <a href="#">these organizations</a> to get help.</p>
       <button class="btn btn-default btn-lg next">Next</button>
     </section>
 
-    <section id="step_four">
+    <section class="slide" id="slide-5">
       <h2>Go to Housing Court</h2>
       <p>You can physically go to your borough's Housing Court to start an HP Action to force your landlord to provide heat. You should do this in addition to making regular 311 complaints.
       </p>
       <button class="btn btn-default btn-lg next">Next</button>
     </section>
 
-    <section>
+    <section class="slide" id="slide-6">
       <h1>Good Work!</h1>
       <p>Hang in there...</p>
       <button class="btn btn-default btn-lg next">Start Over</button>
@@ -113,67 +126,7 @@
 
     </div>
   </div>
-  <script>
-    $(document).ready(function() {
-        var dateObject = new Date();
-        var theDate = "Today is " + (dateObject.getMonth()+1) + "/" + dateObject.getDate() + "/" + dateObject.getFullYear();
-        var currentMilitaryHour = dateObject.getHours();
-
-        var currentAmericanHour = convertHoursFromMilitaryTime();
-        var currentMinutes = dateObject.getMinutes();
-        var formattedMinutes = convertMinutes();
-        var theTime = currentAmericanHour + ":" + formattedMinutes;
-        
-
-        $('.date').text(theDate);
-        $('.time').text(theTime);
-
-
-        function convertMinutes(){
-          if (currentMinutes < 10){
-            return "0" + currentMinutes;
-          }
-          else {
-            return currentMinutes;
-          }
-        }
-
-        function convertHoursFromMilitaryTime(){
-          if (currentMilitaryHour > 12){
-            return currentMilitaryHour - 12;
-          }
-          else {
-            return currentMilitaryHour
-          }
-        } 
-
-
-        $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=newyork&units=imperial&APPID=9b7b2c28d9900e12be5ff93fe2677b09", function(data){
-
-          var currentTemp = data.main.temp,
-              outsideTemp = insideMinTemp();
-
-          currentTemp += "˚F";
-          
-          $('.outside-temp').text(currentTemp);
-          $('.inside-temp').text(outsideTemp);
-
-          function insideMinTemp(){
-            if (currentMilitaryHour > 6 && currentMilitaryHour < 22 && currentTemp < 55) {
-              var minTemp = 68 + "˚F";
-            }
-            else if (currentMilitaryHour > 22 && currentTemp < 40 || currentMilitaryHour < 6 && currentTemp < 40) {
-              var minTemp = 55 + "˚F";
-            }
-            return minTemp;
-          }
-        });
-    });
-  </script>
     
-
-
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
