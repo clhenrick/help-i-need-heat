@@ -131,7 +131,7 @@ var heatlogurlsuffix = '&api_key=146d6f56877a3f50678a19387e10fbfda8b0de30';
   }
 
   function populateTable(jsonArray){
-    var datee, timee, splitt, water, outdoortemp;
+    var datee, timee, splitt, water, outdoortemp, indoortemp;
     for(var i = 0; i < jsonArray.length; i++){
       if(jsonArray[i].datetime != null){
         splitt = jsonArray[i].datetime.split("T");
@@ -148,10 +148,14 @@ var heatlogurlsuffix = '&api_key=146d6f56877a3f50678a19387e10fbfda8b0de30';
       if(jsonArray[i].outdoor_temp === null){
         outdoortemp = ""
       } else {
-        outdoortemp = jsonArray[i].outdoor_temp + "&#176;";
+        outdoortemp = jsonArray[i].outdoor_temp + "&#176;F";
       };
-
-        var htmlstring = "<tr id='"+ jsonArray[i].cartodb_id +"'><td>"+ datee +"</td><td>"+ timee +"</td><td>"+ jsonArray[i]._311_number +"</td><td>"+ outdoortemp +"</td><td>"+ jsonArray[i].indoor_temp +"</td><td>"+ water +"</td><td>"+ jsonArray[i].witness +"</td></tr>";
+      if(jsonArray[i].indoor_temp === null){
+        indoortemp = ""
+      } else {
+        indoortemp = jsonArray[i].indoor_temp + "&#176;F";
+      };
+        var htmlstring = "<tr id='"+ jsonArray[i].cartodb_id +"'><td>"+ datee +"</td><td>"+ timee +"</td><td>"+ jsonArray[i]._311_number +"</td><td>"+ outdoortemp +"</td><td>"+ indoortemp+"</td><td>"+ water +"</td><td>"+ jsonArray[i].witness +"</td></tr>";
         $("tbody").prepend(htmlstring);
     
     } //end for loop 
