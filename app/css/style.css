@@ -3,5 +3,14 @@
 }
 
 section {
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
+  border: 1px solid blue;
+}
+
+h3 {
+  display: inline-block;
+  width: 60%;
+  text-align: center;
+  margin: 0 auto;
 }
