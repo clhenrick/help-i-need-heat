@@ -86,11 +86,25 @@
         <!-- - NEXT button -->
       </section>
 
+
       <section id="step_2">
         Section 4
         <!-- - 2 DCOCUMENT YOUR issues -->
         <!-- - NEXT button -->
       </section>
+
+  <script>
+    $(document).ready(function() {
+        console.log("hits our console");
+        var dateObject = new Date();
+        var theDate = "Today is " + (dateObject.getMonth()+1) + "/" + dateObject.getDate() + "/" + dateObject.getFullYear();
+        var currentHour = dateObject.getHours();
+        var currentMinutes = dateObject.getMinutes();
+        var theTime = currentHour + ":" + currentMinutes;
+        $('#landing_page').append(theDate + " and the time is now " + theTime );
+    });
+  </script>
+
 
       <section id="step_three">
         Section 5
@@ -99,13 +113,6 @@
       </section>
     </div>
   </div>
-
-    <script>
-      $(document).ready(function() {
-          console.log("hits our console");
-      });
-    </script>
-
     
 
 
