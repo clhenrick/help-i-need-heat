@@ -17,7 +17,7 @@ function app() {
   var $navButtons = $(".btn");
   var $navGoPrev = $(".go-prev");
   var $navGoNext = $(".go-next");
-  var $slidesContainer = $(".slides-container");
+  var $slidesContainer = $(".container-fluid");
   var $slides = $(".slide");
   sectionStates.cur = $slides.first();
 
@@ -40,11 +40,8 @@ function app() {
   /*
   *   When a button is clicked - first get the button href, and then slide to the container, if there's such a container
   * */
-  function onNavButtonClick()
-  {
-    console.log("I worked");
+  function onNavButtonClick() {
     //The clicked button
-    // var $button = $(this);
     var $button = $(this);
 
     //The slide the button points to
@@ -55,8 +52,7 @@ function app() {
     console.log(idx, next);
 
     // If the slide exists, we go to it
-    if(next)
-    {
+    if (next) {
       goToSlide(next);
       // event.preventDefault();
     }
@@ -66,17 +62,24 @@ function app() {
   /*
   *   Actual transition between slides
   * */
-  function goToSlide($slide)
-  {
+  function goToSlide(slide) {
+    var $slide = $(slide);
+    console.log('current slide: ', $slide);
     //If the slides are not changing and there's such a slide
-    if(!isAnimating && $slide.length)
-    {
+    if(!isAnimating && $slide.length){
       //setting animating flag to true
       isAnimating = true;
       $currentSlide = $slide;
+      var idx = $slides.index(sectionStates.cur);
+
+      console.log($currentSlide.index());
 
       //Sliding to current slide
-      TweenLite.to($slidesContainer, 1, {scrollTo: {y: pageHeight * $currentSlide.index() }, onComplete: onSlideChangeEnd, onCompleteScope: this});
+      TweenLite.to($slidesContainer, 1, {
+          scrollTo: { y: pageHeight * idx }, 
+          onComplete: onSlideChangeEnd, 
+          onCompleteScope: this
+        });
 
       //Animating menu items
       TweenLite.to($navButtons.filter(".active"), 0.5, {className: "-=active"});
