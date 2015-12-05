@@ -20,7 +20,8 @@
     
     <section id="landing_page">
       Section 1
-      
+      <p id="dateTime"></p>
+      <p id="temp"></p>
       <!-- - current temperature/status update, centered on page -->
       <!-- - call to action -->
       <!-- - "help I need heat button" -->
@@ -57,13 +58,21 @@
 
   <script>
     $(document).ready(function() {
-        console.log("hits our console");
         var dateObject = new Date();
         var theDate = "Today is " + (dateObject.getMonth()+1) + "/" + dateObject.getDate() + "/" + dateObject.getFullYear();
         var currentHour = dateObject.getHours();
         var currentMinutes = dateObject.getMinutes();
         var theTime = currentHour + ":" + currentMinutes;
-        $('#landing_page').append(theDate + " and the time is now " + theTime );
+        $('#dateTime').append(theDate + " and the time is now " + theTime);
+
+        $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=newyork&units=imperial&APPID=9b7b2c28d9900e12be5ff93fe2677b09", function(data){
+          var currentTemp = data.main.temp;
+          $('#temp').append("It is " + currentTemp + " degrees outside right now.");
+        });
+
+        
+
+
     });
   </script>
 
