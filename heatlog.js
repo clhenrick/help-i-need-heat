@@ -26,7 +26,6 @@ var heatlogurlsuffix = '&api_key=146d6f56877a3f50678a19387e10fbfda8b0de30';
 
 
   function loadTableData(){
-    // https://rstachel.cartodb.com/api/v2/sql?q=SELECT+*+FROM+heatlogstarter&api_key=146d6f56877a3f50678a19387e10fbfda8b0de30'
     var statement = "SELECT cartodb_id, hot_water, indoor_temp, outdoor_temp, witness, _311_number, datetime FROM heatlogstarter"
     heatLogGetAjaxCall(statement)
   }
@@ -50,7 +49,7 @@ var heatlogurlsuffix = '&api_key=146d6f56877a3f50678a19387e10fbfda8b0de30';
         datee = splitt[0];
         timee = splitt[1].substr(0, splitt[1].length-1);
       }else{
-      };
+      }; //end if statement
       
         var htmlstring = "<tr id='"+ jsonArray[i].cartodb_id +"'><td>"+ datee +"</td><td>"+ timee +"</td><td>"+ jsonArray[i]._311_number +"</td><td>"+ jsonArray[i].outdoor_temp +"</td><td>"+ jsonArray[i].indoor_temp +"</td><td>"+ jsonArray[i].hot_water +"</td><td>"+ jsonArray[i].witness +"</td></tr>";
         $("tbody").prepend(htmlstring);
