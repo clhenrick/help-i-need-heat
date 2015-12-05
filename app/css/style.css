@@ -46,7 +46,7 @@ button.next {
   left: 50%;
   transform: translateX(-50%);
   margin: auto;
-  bottom: 30vh;
+  bottom: 5vh;
   font-weight: bold;
 }
 
@@ -65,4 +65,10 @@ button.next {
     height: 100px;
     margin: 0 auto;
     display: block;
+}
+
+.heat-map {
+  display: block;
+  margin: 0 auto;
+  max-width: 800px;
 }
