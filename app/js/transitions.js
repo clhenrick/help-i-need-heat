@@ -33,9 +33,7 @@ function onNavButtonClick(event)
   var $button = $(event.currentTarget);
 
   //The slide the button points to
-  var $slide = $($button.parent().attr('id'));
-  var $slide = $($slide.selector);
-  debugger;
+  var $slide = $($button.attr('href'));
   console.log($slide);
 
   //If the slide exists, we go to it
@@ -69,6 +67,17 @@ function goToSlide($slide)
 
   }
 }
+
+
+/*
+  *   Once the sliding is finished, we need to restore "isAnimating" flag.
+  *   You can also do other things in this function, such as changing page title
+  * */
+  function onSlideChangeEnd()
+  {
+    isAnimating = false;
+  }
+
 
   /*
   *   When user resize it's browser we need to know the new height, so we can properly align the current slide
