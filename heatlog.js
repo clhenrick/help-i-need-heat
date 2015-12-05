@@ -86,7 +86,10 @@ var heatlogurlsuffix = '&api_key=146d6f56877a3f50678a19387e10fbfda8b0de30';
       ins('datetime',d);
       insert += ")" + values + ")";
       heatLogSubmitAjaxCall(insert, function(successflag, json) { 
-     alert(successflag?"inserted":"error");
+      if (successflag)
+	  location.reload();
+      else
+	  alert("error inserting data");
  }
 );
 
