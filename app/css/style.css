@@ -1,7 +1,58 @@
+/*colors*/
+/*
+grey: #d9d9da;
+blue grey: #afcdd4;
+yellow: #ff9a33;
+orange: #fb500b;
+*/
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size: 1em;
+}
+
 .container-fluid {
   margin-top: 60px;
 }
 
 section {
+  position: relative;
   width: 100%;
+  height: 100vh;
+  border: 1px solid blue;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  text-align: center;
+  margin: 20px auto;
+  width: 60%;
+}
+
+
+span {
+  background-color: #fb500b;
+  padding: 2px 4px;
+}
+
+
+button.next {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: auto;
+  bottom: 30vh;
+  font-weight: bold;
+}
+
+.steps {
+  width: 250px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.steps li {
+  font-size: 20px;
 }
