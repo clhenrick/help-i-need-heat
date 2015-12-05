@@ -6,6 +6,9 @@ Help I Need App for #HackForHeat NYC, December 5, 2015
 - Openweathermap API
 - Greensock's GSAP (animation library)
 
+## HackPad Notes:
+- [can be found here](https://hackforheat.hackpad.com/Help-I-Need-Heat-4gUxhBQf41B)
+
 ## Collaborators
 - [Rachel Edelman](https://github.com/racheledelman)
 - [Michael Sterling](https://github.com/mgsterling11)
