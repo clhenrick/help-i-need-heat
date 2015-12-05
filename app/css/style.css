@@ -46,3 +46,13 @@ button.next {
   bottom: 30vh;
   font-weight: bold;
 }
+
+.steps {
+  width: 250px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.steps li {
+  font-size: 20px;
+}
