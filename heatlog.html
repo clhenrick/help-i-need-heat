@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="heatlog.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <title>Help I Need Heat Log</title>
+</head>
+<body>
+  <form>
+    <table class='database-row'>
+       <th class="table-head">
+         <td>Date</td>
+         <td>Time</td>
+         <td>311 Complaint Number</td>
+         <td>Outdoor Temparature</td>
+         <td>Inside Temperature</td>
+         <td>Hot Water?</td>
+         <td>Witness</td>
+       </th>
+       <tr class="row-data">  
+          <td class="date"><input type="text" value="" name="fdate"></td>
+          <td class="time"><input type="text" value="" name="ftime"></td>
+          <td class="311-complaint-number"><input type="text" value="" name="311complainnumber"></td>
+          <td class="outdoor-temperature"><input type="text" value="" name="outdoortemp"></td>
+          <td class="indoor-temperature"><input type="text" value="" name="indoortemp"></td>
+          <td class="hot-water"><input type="text" value="" name="hotwater"></td>
+          <td class="witness"><input type="text" value="" name="witness"></td>
+       </tr>   
+    </table>
+    <input type="submit" value="Add New Heat Log Entry">
+  </form>
+</body>
+</html>
