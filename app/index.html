@@ -1,154 +1,142 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Help I Need Heat</title>   
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-      <script src="js/landing-page.js"></script>
-      <script src="js/transitions.js"></script>
-
-
-      <!--CDN links for the latest TweenLite, CSSPlugin, and EasePack-->
-      <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js"></script>
-      <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/easing/EasePack.min.js"></script>
-      <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
-
-      <!-- Latest compiled and minified CSS -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-      <!-- Optional theme -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-      <!-- Latest compiled and minified JavaScript -->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-      <link rel="stylesheet" type="text/css" href="css/style.css">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    </head>
-
-<body>
-  
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Help I Need Heat</a>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Help I Need Heat</title>   
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <!-- custom CSS / bootstrap overrides -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <!-- fixed nav bar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Help I Need Heat</a>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="heatlog.html">Heat Log</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav right">
+              <li><a href="#">English</a></li> 
+              <li><a href="#">Chinese</a></li> 
+              <li><a href="#">Spanish</a></li>
+            </ul>
+          </div>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="heatlog.html">Heat Log</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <ul class="nav navbar-nav right">
-            <li><a href="#">English</a></li> 
-            <li><a href="#">Chinese</a></li> 
-            <li><a href="#">Spanish</a></li>
-          </ul>
-          </ul>
-        </div>
-      </div>
-  </nav>
-
-  <div class='container-fluid'>
+    </nav>
     
-    <section class="slide" id="slide-1">
-   
+    <!-- bootstrap container -->
+    <div class='container-fluid'>
+      <!-- container for slides -->
+      <div class="slides-container">
+        <section class="slide" id="slide-1"> 
+          <div class="centered">
+            <img src="images/HELPHEAT-01.svg" id="logo" alt="logo">
+            <h3 class="strong logo-sub">I Need Heat NYC!</h3>
+            <h1>It's&nbsp;<span class="time"></span>&nbsp; and it's&nbsp;<span class="outside-temp"></span>&nbsp;outside right now.</h1>
+            <h2>According to NYC law, it must be at least&nbsp;<span class="inside-temp"></span>&nbsp;inside your apartment.</h2>
+            <h3><em>Over 10,000 people in NYC are without heat. Are you one of them?</em></h3>
+            <button class="btn btn-default btn-lg go-next">Help, I Need Heat!</button>
+          </div>
+        </section>
 
-      <img src="images/HELPHEAT-01.svg" id="logo" alt="logo">
-      <h3 class="strong">I Need Heat NYC!</h3>
-      <h1>It's&nbsp;<span class="time"></span>&nbsp; and it's&nbsp;<span class="outside-temp"></span>&nbsp;outside right now.</h1>
+        <section class="slide" id="slide-2">
+          <div class="centered">
+            <h2>If Your landlord has not responded to your requests to turn on the heat, here are the steps you can take:</h2>
+            <div class="steps">
+              <ol>
+                <li>Contact 311</li>
+                <li>Keep a Heat Log</li>
+                <li>Reach Out</li>
+                <li>Go To Housing Court</li>
+              </ol>
+            </div>
+            <h3>This might sound like a lot, but don't worry! We'll go through each of them.</h3>
+            <button class="btn btn-default btn-lg go-next" id="#slide-2">Get Started</button>
+          </div>
+        </section>
 
-      <h2>According to NYC law, it must be at least&nbsp;<span class="inside-temp"></span>&nbsp;inside your apartment.</h2>
-      <!-- - current temperature/status update, centered on page -->
-      <!-- - call to action -->
+        <section class="slide" id="slide-2">
+          <div class="centered">
+            <h1><strong>First: Call 311</strong></h1>
+            <h2>Why?</h2>
+            <p>It will "encourage" your landlord to turn on your heat. 311 takes your complaint and sends it to the NY Housing Department  (HPD). The Housing Department then contacts your landlord and lets them know a case has been filed.</p>
+            <p>Build Your Case.  Your complaints are all catalogued, and can be referred to if you choose to take your landlord to court. </p>
+            <button class="btn btn-default btn-lg go-next">Next</button>
+          </div>
+        </section>
 
+        <section class="slide" id="slide-3">
+          <div class="centered">
+            <h1><strong>Second: Keep a Heat Log</strong></h1>
+            <p>Keeping track of every day you don't have heat can help you if you end up in court. Use our <a href="heatlog.html">Heat Log Tool</a> or download the <a href="#">heat log PDF</a> from The Metropolitan Council to print.</p>
+            <button class="btn btn-default btn-lg go-next">Next</button>
+          </div>
+        </section>
 
-      <h3>Over 10,000 people in NYC are without heat. Are you one of them?</h3>
+        <section class="slide" id="slide-4">
+          <div class="centered">
+            <h1><strong>Third: Reach Out</strong></h1>
+            <p>At any time during this process you can contact an organization that can assist you through this process.</p>
+            <p>Reach out to <a href="#">these organizations</a> to get help.</p>
+            <p>Contact your city council member <a target="_blank" href="http://council.nyc.gov/html/members/members.shtml">City Council Member</a></p>
+            <p>Talk to your neighbors. If your neighbors are also struggling with heat, you should work together to file a case against your landlord. Everyone should be contacting 311, at least every day. </p>
+            <button class="btn btn-default btn-lg go-next">Next</button>
+          </div>
+        </section>
 
-      <!-- - "help I need heat button" -->
-      <button class="btn btn-default btn-lg next">Help, I Need Heat!</button>
-    </section>
+        <section class="slide" id="slide-5">
+          <div class="centered">
+            <h1><strong>Fourth: Go to Housing Court</strong></h1>
+            <p>You can physically go to your <a href="#">borough's Housing Court</a> to start an <strong>HP Action</strong> to force your landlord to provide heat. You should do this in addition to making regular 311 complaints.
+            </p>
+            <button class="btn btn-default btn-lg go-next">Next</button>
+          </div>
+        </section>
 
-    <section class="slide" id="slide-2">
-      <h2>If Your landlord has not responded to your requests to turn on the heat, here are the steps you can take:</h2>
-      
-      <div class="steps">
-        <ol>
-          <li>Contact 311</li>
-          <li>Keep a Heat Log</li>
-          <li>Reach Out</li>
-          <li>Go To Housing Court</li>
-        </ol>
-      </div>
+        <section class="slide" id="slide-6">
+          <div class="centered">
+            <h1><strong>Good Work!</strong></h1>
+            <p>No one should go without heat, but many do. By taking action you not only improve your situation, you add fuel to a larger movement to empower all New Yorkers living without heat to take a stand.</p>
+            <button class="btn btn-default btn-lg go-first">Start Over</button>
+          </div>
+        </section>
+      </div> <!-- end slides-container -->
+    </div> <!-- end container-fluid -->
 
-
-<!-- <li id="help-button" ><a href="#slide-1" onclick="onNavButtonClick(event)">Help I Need Heat</a></li>
- -->
-      <button class="btn btn-default btn-lg next" id="#slide-2">Get Started</button>
-
-    </section>
-
-    <section class="slide" id="slide-2">
-      <h2>Call 311</h2>
-      <h3>Why?</h3>
-      <p>It will "encourage" your landlord to turn on your heat. 311 takes your complaint and sends it to the NY Housing Department  (HPD). The Housing Department then contacts your landlord and lets them know a case has been filed.</p>
-      <p>Build Your Case.  Your complaints are all catalogued, and can be referred to if you choose to take your landlord to court. </p>
-      <button class="btn btn-default btn-lg next">Next</button>
-    </section>
-
-    <section class="slide" id="slide-3">
-      <h2>Keep a Heat Log</h2>
-      <p>Keeping track of every day you don't have heat can help you if you end up in court. Use our <a href="heatlog.html">Heat Log Tool</a> or download the <a href="#">heat log PDF</a> from The Metropolitan Council to print.</p>
-      <button class="btn btn-default btn-lg next">Next</button>
-    </section>
-
-    <section class="slide" id="slide-4">
-      <h2>Reach Out</h2>
-      <p>At any time during this process you can contact an organization that can assist you through this process.</p>
-      <p>Reach out to <a href="#">these organizations</a> to get help.</p>
-      <p>Contact your city council member <a target="_blank" href="http://council.nyc.gov/html/members/members.shtml">City Council Member</a></p>
-      <p>Talk to your neighbors. If your neighbors are also struggling with heat, you should work together to file a case against your landlord. Everyone should be contacting 311, at least every day. </p>
-      <button class="btn btn-default btn-lg next">Next</button>
-    </section>
-
-    <section class="slide" id="slide-5">
-      <h2>Go to Housing Court</h2>
-      <p>You can physically go to your borough's Housing Court to start an HP Action to force your landlord to provide heat. You should do this in addition to making regular 311 complaints.
-      </p>
-      <button class="btn btn-default btn-lg next">Next</button>
-    </section>
-
-    <section class="slide" id="slide-6">
-      <h1>Good Work!</h1>
-      <p>No one should go without heat, but many do. By taking action you not only improve your situation, you add fuel to a larger movement to empower New Yorkers to take a stand. </p>
-      <img class="heat-map" src="assets/images/cold-map.png">
-      <button class="btn btn-default btn-lg next final">Start Over</button>
-    </section>
-
-    </div>
-  </div>
+    <!-- load js libraries -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/TweenLite.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/plugins/CSSPlugin.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.11.6/plugins/ScrollToPlugin.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../bootstrap-3.3.6/dist/js/bootstrap.min.js"></script> 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+    <!-- app js scripts -->
+    <script src="js/transitions.js"></script>
+    <script src="js/landing-page.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        app.landing.init();
+        app.slides.init();
+      });
+    </script>
   </body>
 </html>
