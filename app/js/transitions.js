@@ -185,6 +185,7 @@ app.slides = (function(w,d,$,TweenLite) {
     $document.on("keydown", onKeyDown);
     $navButtons.on("click", onNavButtonClick);
     $navGoNext.on("click", goToNextSlide);
+    $navGoPrev.on("click", goToPrevSlide);
     $navGoFirst.on("click", goToFirstSlide);
   };
 

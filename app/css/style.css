@@ -44,9 +44,6 @@ span {
 }
 
 .slides-container {
-/*  position: absolute;
-  left: 0;
-  top: 0;*/
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -65,26 +62,38 @@ span {
   margin: 50px auto 0;
 }
 
-/*section {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-}*/
-
-button.go-next, button.go-first {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: auto;
-  bottom: 20vh;
-  text-spacing: 0.5px;
+.go-next, .go-prev, .start, .go-first {
+  min-width: 150px;
   color: #fff;
   text-shadow: none;
   background: #fb500b;
+  -webkit-transition: background 0.3s ease;
+  -moz-transition: background 0.3s ease;
+  -o-transition: background 0.3s ease;
+  transition: background 0.3s ease;
 }
 
-button.go-first {
-  bottom: 15vh;
+.go-next:hover,
+.go-prev:hover, 
+.go-first:hover {
+  color: #fff;
+  background: #ff9a33;
+}
+
+.start, .go-first {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: auto;
+}
+
+.go-first {
+  /*bottom: 15vh;*/
+}
+
+.btn-grp {
+  width: 310px;
+  margin: 0 auto;
 }
 
 .steps {
