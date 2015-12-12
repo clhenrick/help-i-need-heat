@@ -29,7 +29,7 @@ app.landing = (function(w,d,$) {
     } 
 
     function getWeather() {
-      $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=newyork&units=imperial&APPID=9b7b2c28d9900e12be5ff93fe2677b09", function(data){
+      $.getJSON("//api.openweathermap.org/data/2.5/weather?q=newyork&units=imperial&APPID=9b7b2c28d9900e12be5ff93fe2677b09", function(data){
         var currentTemp = data.main.temp,
             outsideTemp = insideMinTemp();
 

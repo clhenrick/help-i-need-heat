@@ -60,7 +60,7 @@ app.slides = (function(w,d,$,TweenLite) {
   // Actual transition between slides
   goToSlide = function($slide) {
 
-    console.log($slide, $slidesContainer);
+    // console.log($slide, $slidesContainer);
 
     //If the slides are not changing and there's such a slide
     if(!isAnimating && $slide.length){
@@ -68,20 +68,16 @@ app.slides = (function(w,d,$,TweenLite) {
       isAnimating = true;
       $currentSlide = $slide;
 
-      console.log(pageHeight * $currentSlide.index());
+      // console.log(pageHeight * $currentSlide.index());
 
       // Sliding to current slide
-      TweenLite.to($slidesContainer, 1, { scrollTo: {y: pageHeight * $currentSlide.index() }, onComplete: onSlideChangeEnd, onCompleteScope: this});
-      // TweenLite.to($slidesContainer, 1, {
-      //     scrollTo: { y: pageHeight * $currentSlide.index() }, 
-      //     onComplete: onSlideChangeEnd, 
-      //     onCompleteScope: this
-      //   });
-
-      // Animating menu items
-      // TweenLite.to($navButtons.filter(".active"), 0.5, {className: "-=active"});
-      // TweenLite.to($navButtons.filter("[href=#" + $currentSlide.attr("id") + "]"), 0.5, {className: "+=active"});
-
+      TweenLite.to($slidesContainer, 1, { 
+        scrollTo: {
+          y: pageHeight * $currentSlide.index() 
+        }, 
+        onComplete: onSlideChangeEnd, 
+        onCompleteScope: this
+      });
     }
   };
 
