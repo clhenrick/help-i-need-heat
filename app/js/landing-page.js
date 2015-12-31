@@ -1,8 +1,12 @@
+'use strict'
+
 var app = app || {};
 
 app.landing = (function(w,d,$) {
     var dateObject = new Date();
-    var theDate = "Today is " + (dateObject.getMonth()+1) + "/" + dateObject.getDate() + "/" + dateObject.getFullYear();
+    var currentMonth = dateObject.getMonth() + 1;
+    // var currentMonth = 6;
+    var heatSeason = true;
     var currentMilitaryHour = dateObject.getHours();
     var currentAmericanHour = convertHoursFromMilitaryTime();
     var currentMinutes = dateObject.getMinutes();
@@ -37,16 +41,23 @@ app.landing = (function(w,d,$) {
         
         $('.outside-temp').text(currentTemp);
 
-        if (outsideTemp){
+        if (!heatSeason){
+          $('#temperature-info').html("<h1>According to NYC law, there is no minimum temperature at the moment. The regulations are only in effect from October 1 to May 31.</h1>");
+        }
+        else if (outsideTemp && heatSeason){
           $('.inside-temp').text(outsideTemp);
         } 
         else {
-          $('#temperature-info').html("<h1>According to NYC law, there is no minimum temperature at the moment. It is too warm outside for regulations to take effect.</h1>")
+          $('#temperature-info').html("<h1>According to NYC law, there is no minimum temperature at the moment. It is too warm outside for regulations to take effect.</h1>");
         }
 
         function insideMinTemp(){
-          if (currentMilitaryHour > 6 && currentMilitaryHour < 22 && currentTemp < 55) {
-            var minTemp = 68 + "˚F";
+          if (currentMonth > 5 && currentMonth < 10) {
+            heatSeason = false;
+            var minTemp = false;
+          }
+          else if (currentMilitaryHour > 6 && currentMilitaryHour < 22 && currentTemp < 55) {
+            var minTemp = 68 + "˚F"; 
           }
           else if (currentMilitaryHour > 22 && currentTemp < 40 || currentMilitaryHour < 6 && currentTemp < 40) {
             var minTemp = 55 + "˚F";
