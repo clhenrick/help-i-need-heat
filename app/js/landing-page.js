@@ -36,7 +36,13 @@ app.landing = (function(w,d,$) {
         currentTemp += "˚F";
         
         $('.outside-temp').text(currentTemp);
-        $('.inside-temp').text(outsideTemp);
+
+        if (outsideTemp){
+          $('.inside-temp').text(outsideTemp);
+        } 
+        else {
+          $('#temperature-info').html("<h1>According to NYC law, there is no minimum temperature at the moment. It is too warm outside for regulations to take effect.</h1>")
+        }
 
         function insideMinTemp(){
           if (currentMilitaryHour > 6 && currentMilitaryHour < 22 && currentTemp < 55) {
@@ -44,6 +50,9 @@ app.landing = (function(w,d,$) {
           }
           else if (currentMilitaryHour > 22 && currentTemp < 40 || currentMilitaryHour < 6 && currentTemp < 40) {
             var minTemp = 55 + "˚F";
+          }
+          else {
+            var minTemp = false;
           }
           return minTemp;
         }
