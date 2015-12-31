@@ -5,8 +5,8 @@ var app = app || {};
 app.landing = (function(w,d,$) {
     var dateObject = new Date();
     var currentMonth = dateObject.getMonth() + 1;
-    // var currentMonth = 6;
-    var heatSeason = true;
+    // var currentMonth = 9;
+    var isHeatSeason = true;
     var currentMilitaryHour = dateObject.getHours();
     var currentAmericanHour = convertHoursFromMilitaryTime();
     var currentMinutes = dateObject.getMinutes();
@@ -34,17 +34,18 @@ app.landing = (function(w,d,$) {
 
     function getWeather() {
       $.getJSON("//api.openweathermap.org/data/2.5/weather?q=newyork&units=imperial&APPID=9b7b2c28d9900e12be5ff93fe2677b09", function(data){
-        var currentTemp = data.main.temp,
-            outsideTemp = insideMinTemp();
+        var currentTemp = data.main.temp;
+        // currentTemp = 56;
+        var outsideTemp = insideMinTemp();    
 
         currentTemp += "˚F";
         
         $('.outside-temp').text(currentTemp);
 
-        if (!heatSeason){
+        if (!isHeatSeason){
           $('#temperature-info').html("<h1>According to NYC law, there is no minimum temperature at the moment. The regulations are only in effect from October 1 to May 31.</h1>");
         }
-        else if (outsideTemp && heatSeason){
+        else if (outsideTemp && isHeatSeason){
           $('.inside-temp').text(outsideTemp);
         } 
         else {
@@ -53,7 +54,7 @@ app.landing = (function(w,d,$) {
 
         function insideMinTemp(){
           if (currentMonth > 5 && currentMonth < 10) {
-            heatSeason = false;
+            isHeatSeason = false;
             var minTemp = false;
           }
           else if (currentMilitaryHour > 6 && currentMilitaryHour < 22 && currentTemp < 55) {
