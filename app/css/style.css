@@ -28,6 +28,18 @@ span {
   padding: 2px 4px;
 }
 
+#is-not-heat-season {
+  display: none;
+}
+
+#too-hot-outside {
+  display: none;
+}
+
+#temperature-info {
+  display: none;
+}
+
 .strong, strong {
   color: #3e5ba9;
 }
