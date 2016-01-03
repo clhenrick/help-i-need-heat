@@ -49,12 +49,12 @@ app.landing = (function(w,d,$) {
         var $tooHotOutside = $('#too-hot-outside');
         var insideTemperature = insideMinTemp(currentTemp);
 
-        currentTemp += "˚F";
 
         if (currentMonth > 5 && currentMonth < 10) {
           $isNotHeatSeason.css('display', 'block');
         } 
         else if (insideTemperature) {
+          currentTemp += "˚F";
           $('.time').text(theTime);
           $('.outside-temp').text(currentTemp);
           $('.inside-temp').text(insideTemperature);
