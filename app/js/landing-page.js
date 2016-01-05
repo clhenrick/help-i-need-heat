@@ -5,7 +5,6 @@ var app = app || {};
 app.landing = (function(w,d,$) {
     var dateObject = new Date();
     var currentMonth = dateObject.getMonth() + 1;
-        // currentMonth = 9;
     var currentMilitaryHour = dateObject.getHours();
     var currentAmericanHour = convertHoursFromMilitaryTime();
     var currentMinutes = dateObject.getMinutes();
@@ -45,7 +44,6 @@ app.landing = (function(w,d,$) {
     function displayTemperatureInfo() {
       $.getJSON("//api.openweathermap.org/data/2.5/weather?q=newyork&units=imperial&APPID=9b7b2c28d9900e12be5ff93fe2677b09", function(data){
         var currentTemp = data.main.temp;
-            // currentTemp = 56;
         var $temperatureInfo = $('#temperature-info');
         var $isNotHeatSeason = $('#is-not-heat-season');
         var $tooHotOutside = $('#too-hot-outside');
