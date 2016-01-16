@@ -1,0 +1,33 @@
+{
+  "name": "help-i-need-heat",
+  "version": "0.0.0",
+  "description": "A web app to help NYC renters get their heat turned on during the winter",
+  "main": "index.js",
+  "scripts": {
+    "test": "\"echo no tests\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clhenrick/help-i-need-heat.git"
+  },
+  "keywords": [
+    "hack",
+    "for",
+    "heat",
+    "nyc",
+    "betanyc",
+    "beta",
+    "nyc",
+    "hackforheat",
+    "hackforheat2015"
+  ],
+  "author": "chris henrick & contributors",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clhenrick/help-i-need-heat/issues"
+  },
+  "homepage": "https://github.com/clhenrick/help-i-need-heat#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
