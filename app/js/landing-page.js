@@ -9,7 +9,7 @@ app.landing = (function(w,d,$) {
     var currentAmericanHour = convertHoursFromMilitaryTime();
     var currentMinutes = dateObject.getMinutes();
     var formattedMinutes = convertMinutes();
-    var theTime = currentAmericanHour + ":" + formattedMinutes;
+    var theTime = currentAmericanHour + ":" + formattedMinutes + " " + amPm();
 
 
     function convertMinutes(){
@@ -29,6 +29,14 @@ app.landing = (function(w,d,$) {
         return currentMilitaryHour
       }
     } 
+
+    function amPm() {
+      if (currentMilitaryHour > 12) {
+        return "PM";
+      } else {
+        return "AM";
+      }
+    }
 
     function insideMinTemp(currentTemp){
       var minTemp = false;
