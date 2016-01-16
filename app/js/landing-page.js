@@ -3,14 +3,15 @@
 var app = app || {};
 
 app.landing = (function(w,d,$) {
-    var dateObject = new Date();
-    var currentMonth = dateObject.getMonth() + 1;
-    var currentMilitaryHour = dateObject.getHours();
-    var currentAmericanHour = convertHoursFromMilitaryTime();
-    var currentMinutes = dateObject.getMinutes();
-    var formattedMinutes = convertMinutes();
-    var theTime = currentAmericanHour + ":" + formattedMinutes + " " + amPm();
-
+    var dateObject,
+        currentMonth,
+        currentMilitaryHour,
+        currentAmericanHour,
+        currentMinutes,
+        formattedMinutes,
+        theTime,
+        timeInterval,
+        tempInterval;
 
     function convertMinutes(){
       if (currentMinutes < 10){
@@ -49,6 +50,17 @@ app.landing = (function(w,d,$) {
       return minTemp;
     }
 
+    function displayCurrentTime() {
+      dateObject = new Date();
+      currentMonth = dateObject.getMonth() + 1;
+      currentMilitaryHour = dateObject.getHours();
+      currentAmericanHour = convertHoursFromMilitaryTime();
+      currentMinutes = dateObject.getMinutes();
+      formattedMinutes = convertMinutes();
+      theTime = currentAmericanHour + ":" + formattedMinutes + " " + amPm();
+      $('.time').text(theTime);
+    }
+
     function displayTemperatureInfo() {
       $.getJSON("//api.openweathermap.org/data/2.5/weather?q=newyork&units=imperial&APPID=9b7b2c28d9900e12be5ff93fe2677b09", function(data){
         var currentTemp = data.main.temp;
@@ -57,29 +69,44 @@ app.landing = (function(w,d,$) {
         var $tooHotOutside = $('#too-hot-outside');
         var insideTemperature = insideMinTemp(currentTemp);
 
+        currentTemp += "˚F";
+        $('.outside-temp').text(currentTemp);
+        $('.inside-temp').text(insideTemperature);
+
 
         if (currentMonth > 5 && currentMonth < 10) {
           $isNotHeatSeason.removeClass('hidden');
+          $temperatureInfo.addClass('hidden');
+          $tooHotOutside.addClass('hidden');
         } 
         else if (insideTemperature) {
-          currentTemp += "˚F";
-          $('.time').text(theTime);
-          $('.outside-temp').text(currentTemp);
-          $('.inside-temp').text(insideTemperature);
           $temperatureInfo.removeClass('hidden');
+          $tooHotOutside.addClass('hidden');
+          $isNotHeatSeason.addClass('hidden');
         }
         else {
           $tooHotOutside.removeClass('hidden');
+          temperatureInfo.addClass('hidden');
+          isNotHeatSeason.addClass('hidden');
         }
+
       });
     }
 
     function init(){
+      displayCurrentTime();
       displayTemperatureInfo();
+      // update our clock ever 10 seconds and the weather every hour
+      timeInterval = setInterval(displayCurrentTime, 10000);
+      tempInterval = setInterval(displayTemperatureInfo, 3600000);
     }
 
     return {
-      init : init
+      init : init,
+      displayCurrentTime : displayCurrentTime,
+      displayTemperatureInfo : displayTemperatureInfo,
+      timeInterval : timeInterval,
+      tempInterval : tempInterval
     };
       
 })(window,document,jQuery);
