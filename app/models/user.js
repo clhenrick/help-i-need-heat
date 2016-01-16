@@ -8,45 +8,109 @@ var user = new CartoDB({
   api_key: config.cartodb_key
 });
 
-var User = function(props, action) {
+var User = function(props, action, callback) {
 
   if (!props) {
-    console.log('error: user props not defined');
-    return;
+    callback('error: user props not defined');
   }
 
-  if (action === 'getUser') {
+  if (action === 'getAllUsers') {
+
+    user.acceptString = function(props) {
+
+      props = JSON.parse(props);
+
+      if (props.name !== "*") { callback('getAllUsers err: incorrect usage'); }
+
+      user.on('connect', function() {
+        console.log('cartodb connected');
+
+        var query = squel.select()
+              .from(config.cartodb_users)
+              .toString();
+
+        console.log('get all users query:', query);
+
+        user.query(query, {table: config.cartodb_users}, function(err, data) {
+          if (err) { callback(err); }
+
+          if (callback && typeof callback === 'function') {
+            callback(null, data);
+          }
+        });
+
+      });
+
+    }
+
+    user.acceptString(JSON.stringify(props));
+    user.connect();
+
+  } else if (action === 'getUser') {
   
     user.acceptString = function(props) {
 
-      var query = squel.select()
-            .from(config.cartodb_users)
-            .where("name = " + props.name)
-            .toString();
+      props = JSON.parse(props);
 
-      user.query(query, null, function(err, data) {
-        if (err) { console.log('cartodb error'); }
-        return data.rows;
+      user.on('connect', function() {
+        console.log('cartodb connected');
+
+        var query = squel.select()
+              .from(config.cartodb_users)
+              .where("name = " + props.name)
+              .toString();
+
+        console.log('get user query:', query);
+
+        user.query(query, {table: config.cartodb_users}, function(err, data) {
+          if (err) { callback(err); }
+
+          if (callback && typeof callback === 'function') {
+            callback(null, data);
+          }
+
+        });
+
       });
+
     }
+
+    user.acceptString(JSON.stringify(props));
+    user.connect();
   
   } else if (action === 'createUser') {
 
     user.acceptString = function(props) {
 
-      var query = squel.insert()
-            .into(config.cartodb_users)
-            .set("name", props.name)
-            .set("pw", props.pw)
-            .admin("admin", props.admin)
-            .toString();
+      props = JSON.parse(props);
 
-      user.query(query, null, function(err, data) {
-        if (err) { console.log('cartodb insert error'); }
-        console.log('create user success!');
+      user.on('connect', function() {
+        console.log('cartodb connected');
+
+        var query = squel.insert()
+              .into(config.cartodb_users)
+              .set("name", props.name)
+              .set("password", props.pw)
+              .set("admin", props.admin)
+              .toString();
+        
+        console.log('create user query:', query);
+
+        user.query(query, {table: config.cartodb_users}, function(err, data) {
+          if (err) { console.log('cartodb insert error'); }
+
+          if (callback && typeof callback === 'function') {
+            callback(null, data);
+          }
+        
+        });
+
       });
 
     }
+
+    user.acceptString(JSON.stringify(props));
+    user.connect();
 
   } else {
     console.log('error: action must be getUser or createUser');

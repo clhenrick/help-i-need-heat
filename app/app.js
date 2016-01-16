@@ -1,3 +1,6 @@
+// taking help from https://scotch.io/tutorials/authenticate-a-node-js-api-with-json-web-tokens
+// and https://github.com/jueyang/scavenger-carto/blob/master/server.js
+
 var express = require('express'),
     app = express(),
     routes = express.Router(),
@@ -29,25 +32,37 @@ app.get('/', function(req, res) {
 
 routes.get('/', function(req, res) {
   res.json({message: 'welcome to the Help I Need Heat API'});
+  res.end();
 });
 
+// go to http://localhost:3000/api/users
 routes.get('/users', function(req, res) {
-  User.find({}, function(err, users) {
-    if (err) console.log(err);
+  
+  User({name: '*'}, 'getAllUsers', function(err, users) {
+    if (err) { console.log(err); }
     res.json(users);
+    res.end();
   });
+
 });
 
+// go to http://localhost:3000/setup
 app.get('/setup', function(req, res) {
+
+  console.log('route: /setup');
 
   // create a sample user
   var john = new User({
     name : 'John Doe', 
     pw : 'password',
     admin : true 
-  }, 'createUser');
-
-  console.log(john);
+  }, 
+  'createUser',
+  function(err, user){
+    if (err) { console.log(err); }
+    res.status(200).json(user);
+    res.end();
+  });
 
 });
 
@@ -55,7 +70,7 @@ app.get('/setup', function(req, res) {
 routes.post('/authenticate', function(req, res) {
 
   // find the user
-  User.findOne({
+  Users({
     name: req.body.name
   }, function(err, user) {
 
@@ -90,10 +105,6 @@ routes.post('/authenticate', function(req, res) {
 });
 
 app.use('/api', routes);
-
-
-
-
 
 app.listen(port, function () {
   console.log('listening on port: ', port);
