@@ -118,3 +118,10 @@ span {
   margin: 0 auto;
   max-width: 800px;
 }
+
+#slide-2 p {
+  text-align: left;
+  max-width: 100%;
+  min-width: 90%;
+  margin: 18px auto;
+}
