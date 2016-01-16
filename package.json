@@ -4,7 +4,7 @@
   "description": "A web app to help NYC renters get their heat turned on during the winter",
   "main": "index.js",
   "scripts": {
-    "test": "\"echo no tests\""
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,11 @@
   },
   "homepage": "https://github.com/clhenrick/help-i-need-heat#readme",
   "dependencies": {
-    "express": "^4.13.3"
+    "body-parser": "^1.14.2",
+    "cartodb": "^0.2.1",
+    "express": "^4.13.3",
+    "jsonwebtoken": "^5.5.4",
+    "morgan": "^1.6.1",
+    "squel": "^4.2.2"
   }
 }
