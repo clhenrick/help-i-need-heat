@@ -29,10 +29,11 @@
   "homepage": "https://github.com/clhenrick/help-i-need-heat#readme",
   "dependencies": {
     "body-parser": "^1.14.2",
-    "cartodb": "^0.2.1",
     "express": "^4.13.3",
+    "jade": "^1.11.0",
     "jsonwebtoken": "^5.5.4",
     "morgan": "^1.6.1",
+    "pg": "^4.4.3",
     "squel": "^4.2.2"
   }
 }
